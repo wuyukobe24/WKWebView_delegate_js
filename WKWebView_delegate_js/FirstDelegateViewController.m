@@ -1,7 +1,7 @@
 //
 //  FirstDelegateViewController.m
 //  WKWebView_delegate_js
-//
+//  简书地址：http://www.jianshu.com/p/7036e19dd470
 //  Created by WangXueqi on 2017/12/20.
 //  Copyright © 2017年 JingBei. All rights reserved.
 //
