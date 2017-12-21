@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+        <script language="javascript">
+            //1.返回
+            function backClick() {
+                window.webkit.messageHandlers.Back.postMessage(null);
+            }
+            //2.修改背景色
+            function colorClick() {
+                window.webkit.messageHandlers.Color.postMessage(null);
+            }
+            //3.js传参数
+            function paramClick() {
+                var content = document.getElementById("firstid").value;
+                window.webkit.messageHandlers.Param.postMessage({first:'来自js的数据:',second:content});
+            }
+            //展示oc所传js数据
+            function transferPrama(str) {
+                asyncAlert(str);//响应WKUIDelegate的代理方法runJavaScriptAlertPanelWithMessage
+                document.getElementById("secondid").value = str;
+            }
+            function asyncAlert(content) {
+                setTimeout(function() {
+                   alert(content);
+                },1);
+            }       
+         </script>
+    </head>   
+    <body>
+        <h1>html5</h1>
+        <input type="button" value="返回首页" onclick="backClick()" />
+        <input type="button" value="修改背景色" onclick="colorClick()" />
+        <h1>传js数据给oc</h1>
+        <textarea id ="firstid" type="value" rows="5" cols="40"></textarea>
+        <input type="button" value="上传" onclick="paramClick()" />
+           
+        <h1>展示oc所传数据</h1>
+        <textarea id ="secondid" type="value" rows="5" cols="40"> </textarea>
+    </body>
+</html>
